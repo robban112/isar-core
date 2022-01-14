@@ -33,7 +33,7 @@ impl Env {
 
             let mut err_code = 0;
             for i in 1..10 {
-                mdbx_result(ffi::mdbx_env_set_geometry(
+                /*mdbx_result(ffi::mdbx_env_set_geometry(
                     env,
                     MB,
                     0,
@@ -41,9 +41,9 @@ impl Env {
                     (5 * MB) / i,
                     (20 * MB) / i,
                     -1,
-                ))?;
+                ))?;*/
 
-                err_code = ffi::mdbx_env_open(env, path.as_ptr(), flags, 0o600);
+                err_code = ffi::mdbx_env_open(env, path.as_ptr(), 0, 0o600);
                 if err_code == ffi::MDBX_SUCCESS {
                     break;
                 }
